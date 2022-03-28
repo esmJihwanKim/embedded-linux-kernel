@@ -1,2 +1,2 @@
 # Linux_Kernel
-Understanding the structure and its mechanism of action of Linux kernel
+Understanding the structure of Linux kernels and their mechanism of action
