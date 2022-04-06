@@ -2,8 +2,10 @@
 
 echo "configure build output path"
 
+# save the current working directory to the shell script variable KERNEL_TOP_PATH
 KERNEL_TOP_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-OUTPUT = "$KERNEL_TOP_PATH/out"
+# add out folder to KERNEL_TOP_PATH directory 
+OUTPUT="$KERNEL_TOP_PATH/out"
 echo "$OUTPUT"
 
 KERNEL=kernel7
@@ -13,7 +15,8 @@ echo "move kernel source"
 cd linux
 
 echo "make defconfig"
-make 0=$OUTPUT bcm2709_defconfig
+make O=$OUTPUT bcm2709_defconfig
 
 echo "kernel build"
-make 0=$OUTPUT zImage modules dtbs -j4 2>$1 | tee $BUILD_LOG
+make O=$OUTPUT zImage modules dtbs -j4 2>&1 | tee $BUILD_LOG 
+
