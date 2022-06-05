@@ -10,3 +10,5 @@ int main(int argc, char *argv[])
 
     return 0; 
 }
+
+// $gcc -fopenmp 4.20_OpenMP1.c
